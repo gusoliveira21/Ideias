@@ -1,18 +1,18 @@
 # Border-radius Previewer
 
-**Tier:** 1-Beginner
+**Nível:** Iniciante
 
-The border-radius property can have multiple values changed. Preview how the shape looks while changing these values.
+A propriedade border-radius pode ter vários valores alterados. Visualize a aparência da forma ao alterar esses valores.
 
 ## User Stories
 
--   [ ] User can see a box which has a `border-radius` property applied to it
--   [ ] User can change the 4 `border-radius` values that are applied to the box (top-left, top-right, bottom-left, bottom-right)
--   [ ] User can copy the resulting CSS to the clipboard
+-   [ ] O usuário pode ver uma caixa que tem uma propriedade `border-radius` aplicada a ela.
+-   [ ] O usuário pode alterar os 4 valores de `border-radius` que são aplicados à caixa (superior esquerdo, superior direito, inferior esquerdo, inferior direito).
+-   [ ] O usuário pode copiar o CSS resultante para a área de transferência.
 
 ## Bonus features
 
--   [ ] User can change all 8 possible values of the border-radius in order to create a complex shape
+-   [ ] O usuário pode alterar todos os 8 valores possíveis do raio da borda para criar uma forma complexa
 
 ## Useful links and resources
 
