@@ -1,0 +1,2 @@
+rootProject.name = "Border Radius Previewer"
+include ':app'
