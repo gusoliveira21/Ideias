@@ -1,101 +1,91 @@
 package com.gusoliveira21.borderradiuspreviewer
 
-import android.gesture.GestureUtils
-import android.graphics.Rect
-import android.graphics.drawable.Drawable
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.text.Html
+import android.text.TextUtils
+import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.Toast
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.widget.EditText
+import android.widget.TextView
+import androidx.annotation.VisibleForTesting
+import androidx.appcompat.app.AppCompatActivity
+import java.io.FileOutputStream
 
 class MainActivity : AppCompatActivity() {
-
-
-    //lateinit var box: View
-
-    //var image: Drawable = getResources().getDrawable(R.drawable.box)
-
-    /**
-     * Drawable image = context.getResources().getDrawable( R.drawable.ic_action );
-
-     * int h = image.getIntrinsicHeight();
-     * int w = image.getIntrinsicWidth();
-     * image.setBounds( 0, 0, w, h );
-
-     * button.setCompoundDrawables( image, null, null, null );
-     *
-     * setCompoundDrawables()
-     * Drawable.setBounds()
-     *
-     **/
+    private val webView: WebView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var btCima: Button = findViewById(R.id.bt_cima)
-        var btBaixo: Button = findViewById(R.id.bt_baixo)
-        var btDireita: Button = findViewById(R.id.bt_direita)
-        var btEsquerda: Button = findViewById(R.id.bt_esquerda)
-        var image: Drawable = getResources().getDrawable(R.drawable.box)
-        btCima.setOnClickListener {
+        val TextView: TextView = findViewById(R.id.textView_exemplo)
+        val webView = findViewById<WebView>(R.id.web_view)
+
+        title = "KotlinApp"
+
+        webView.webViewClient = WebViewClient()
+        webView.loadUrl("file:///android_asset/web_form.html")
+        val webSettings = webView.settings
+        webSettings.javaScriptEnabled = true
+
+        val fileName = "test.txt"
+        val fileBody = "teste"
 
 
-            //setCompoundDrawablesWithIntrinsicBounds()
-            image.setBounds(
-                20,80,20,80
-            )
+        /**
+         * openFileOutput() é usado para especificar o nome do arquivo
+         * modos de operação:
+         * >Context.MODE_APPEND = 32768
+         * >Context.MODE_WORLD_READABLE = 1
+         * >Context.MODE_WORLD_WRITEABLE = 2
+         *
+         * >MODE_PRIVATE: é o modo de operação padrão, o que significa que o arquivo é um dado
+         * privado e só pode ser acessado pelo próprio aplicativo. Neste modo, o conteúdo escrito
+         * sobrescreverá o conteúdo do arquivo original, se você quiser anexar o conteúdo
+         * recém-escrito ao original no arquivo. Pode usar Context.MODE_APPEND
+         *
+         * >Context.MODE_APPEND: O modo verifica se o arquivo existe. Se existir, ele anexa o conteúdo
+         * ao arquivo, caso contrário, ele cria um novo arquivo.
+         *
+         * >Context.MODE_WORLD_READABLE e Context.MODE_WORLD_WRITEABLE são usados para
+         * controlar se outros aplicativos têm permissão para ler e gravar o arquivo.
+         *
+         * >MODE_WORLD_READABLE: indica que o arquivo atual pode ser lido por outros aplicativos;
+         *
+         * >MODE_WORLD_WRITEABLE: indica que o arquivo atual pode ser escrito por outros aplicativos.
+         *
+         * Se você quiser que o arquivo seja lido e escrito por outros aplicativos, pode passar:
+        openFileOutput (“itcast.txt”, Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
 
+        https://en.proft.me/2019/10/14/reading-and-writing-files-android-using-kotlin/
 
+        https://www.programmersought.com/article/5626394340/
+         * **/
+        openFileOutput("fileName.txt", MODE_PRIVATE).use { output ->
+            output.write(fileBody.toByteArray())
         }
 
+
+
+        openFileInput(fileName).use { stream ->
+            val text = stream.bufferedReader().use {
+                it.readText()
+            }
+            Log.d("TAG", "LOADED: $ text")
+        }
+
+    }
+
+    override fun onBackPressed() {
+        if (webView!!.canGoBack()) {
+            webView.goBack()
+        } else {
+            super.onBackPressed()
+        }
     }
 
 
 }
 
-
-/*
-*
-
--Caixa com a propriedade Border radius.
-
--O ucuário pode alterar os 4 valores de uma borda.
-
--Copiar o css resultante.
-
-
--O usuário pode alterar todos os 8 valores possíveis do raio da borda para criar uma forma complexa
-
-
-
-
-
-
-var image: Drawable = context.getResources().getDrawable(R.drawable.ic_action)
-Drawable image = context.getResources().getDrawable( R.drawable.ic_action );
-
-
-
-Drawable image = context.getResources().getDrawable( R.drawable.ic_action );
-int h = image.getIntrinsicHeight();
-int w = image.getIntrinsicWidth();
-image.setBounds( 0, 0, w, h );
-button.setCompoundDrawables( image, null, null, null );
-
-
-setCompoundDrawables()
-Drawable.setBounds()
-
-
-
-
-
-view.setCompoundDrawablesWithIntrinsicBounds(
-    null,
-    getResources().getDrawable(R.drawable.some_img),
-    null,
-    null
-);
-ordem dos argumentos: (esquerda, superior, direita, inferior)
-* */
