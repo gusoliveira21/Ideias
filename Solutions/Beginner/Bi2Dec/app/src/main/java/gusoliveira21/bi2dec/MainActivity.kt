@@ -57,11 +57,13 @@ class MainActivity : AppCompatActivity() {
 
         for (DoMenorParaMaior in 0..(campoBinario.length - 1)) {
             DoMaiorParaMenor = DoMaiorParaMenor - 1
+
             valorResultado += campoBinario[DoMenorParaMaior].digitToInt() * Math.pow(
                 2.0,
                 DoMaiorParaMenor.toDouble()
             )
         }
+
         Toast.makeText(this, valorResultado.toInt().toString(), Toast.LENGTH_LONG).show()
 
     }
