@@ -34,8 +34,11 @@
 
         <TableLayout
             android:id="@+id/tableLayout"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
             android:baselineAligned="false"
             android:clickable="false"
             android:clipChildren="false"
@@ -62,8 +65,8 @@
 
                 <ImageButton
                     android:id="@+id/btDelLast"
-                    android:layout_width="wrap_content"
-                    android:layout_height="45dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#3F51B5"
                     android:foregroundGravity="center"
                     android:hapticFeedbackEnabled="false"
@@ -89,26 +92,26 @@
 
                 <Button
                     android:id="@+id/bt2"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:text="2"
                     android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/bt3"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:text="3"
                     android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/btMultiplicacao"
-                    android:layout_width="141dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#FFFFFF"
-                    android:text="X"
+                    android:text="*"
                     android:textSize="24sp"
                     app:backgroundTint="@color/purple_700" />
 
@@ -120,32 +123,32 @@
 
                 <Button
                     android:id="@+id/bt4"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:text="4"
                     android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/bt5"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:text="5"
                     android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/bt6"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:text="6"
                     android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/btDivisao"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:text="/"
                     android:textSize="24sp"
@@ -159,32 +162,32 @@
 
                 <Button
                     android:id="@+id/bt7"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:text="7"
                     android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/bt8"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:text="8"
                     android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/bt9"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:text="9"
                     android:textSize="24sp" />
 
                 <Button
                     android:id="@+id/btSubtracao"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="#FFFFFF"
                     android:text="-"
                     android:textSize="24sp"
@@ -198,7 +201,7 @@
 
                 <Button
                     android:id="@+id/btVirgula"
-                    android:layout_width="90dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="8dp"
                     android:background="#FFFFFF"
@@ -208,8 +211,8 @@
 
                 <Button
                     android:id="@+id/bt0"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginBottom="8dp"
                     android:background="#FFFFFF"
                     android:text="0"
@@ -217,8 +220,8 @@
 
                 <Button
                     android:id="@+id/btCalcular"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginBottom="8dp"
                     android:background="@color/purple_500"
                     android:text="="
@@ -227,8 +230,8 @@
 
                 <Button
                     android:id="@+id/btSoma"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginBottom="8dp"
                     android:background="#FFFFFF"
                     android:text="+"
