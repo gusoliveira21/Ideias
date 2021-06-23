@@ -1,23 +1,21 @@
 package gusoliveira21.calculadora
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import gusoliveira21.calculadora.databinding.ActivityMainBinding
-import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    lateinit var listaDeValoresParaCalcular:MutableList<String>
+    var valor: Double = 0.0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
         binding.textViewResultado.setText("")
-        var valor: Double = 0.0
 
         binding.bt0.setOnClickListener {
             binding.textViewResultado.text = "${binding.textViewResultado.text}" + "0"
@@ -50,28 +48,41 @@ class MainActivity : AppCompatActivity() {
             binding.textViewResultado.text = "${binding.textViewResultado.text}" + "9"
         }
 
-        //TODO 1: Não deixar ser possível a inserção de dois, ou mais, simbolos aritiméticos em seguida.
-
-        //TODO 2: Caso o campo esteja sem nenhum elemento numério e seja colocado algum elemento aritimético,
-        //        é necessário colocar o simbolo Zero na frente.
         binding.btSoma.setOnClickListener {
-            binding.textViewResultado.text = "${binding.textViewResultado.text}" + "+"
+            if(funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text))
+                binding.textViewResultado.text = "${binding.textViewResultado.text}" + "+"
+            else
+                Toast.makeText(this,"Informe a expressão corretamente!", Toast.LENGTH_SHORT).show()
         }
         binding.btVirgula.setOnClickListener {
-            binding.textViewResultado.text = "${binding.textViewResultado.text}" + "."
+            if(funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text))
+                binding.textViewResultado.text = "${binding.textViewResultado.text}" + "."
+            else
+                Toast.makeText(this,"Informe a expressão corretamente!", Toast.LENGTH_SHORT).show()
+
         }
         binding.btDivisao.setOnClickListener {
-            binding.textViewResultado.text = "${binding.textViewResultado.text}" + "/"
+            if(funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text))
+                binding.textViewResultado.text = "${binding.textViewResultado.text}" + "/"
+            else
+                Toast.makeText(this,"Informe a expressão corretamente!", Toast.LENGTH_SHORT).show()
+
         }
         binding.btSubtracao.setOnClickListener {
-            binding.textViewResultado.text = "${binding.textViewResultado.text}" + "-"
+            if(funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text))
+                binding.textViewResultado.text = "${binding.textViewResultado.text}" + "-"
+            else
+                Toast.makeText(this,"Informe a expressão corretamente!", Toast.LENGTH_SHORT).show()
+
         }
         binding.btMultiplicacao.setOnClickListener {
-            binding.textViewResultado.text = "${binding.textViewResultado.text}" + "*"
+            if(funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text))
+                binding.textViewResultado.text = "${binding.textViewResultado.text}" + "*"
+            else
+                Toast.makeText(this,"Informe a expressão corretamente!", Toast.LENGTH_SHORT).show()
         }
 
         binding.btDelAll.setOnClickListener { binding.textViewResultado.setText("") }
-
         binding.btDelLast.setOnClickListener {
             if (binding.textViewResultado.text.isEmpty())
                 Toast.makeText(this, "Campo Vazio", Toast.LENGTH_SHORT).show()
@@ -82,17 +93,44 @@ class MainActivity : AppCompatActivity() {
         binding.btCalcular.setOnClickListener { funCalcularResultado(binding.textViewResultado.text) }
     }
 
+    private fun funVerificaSeUltimoElementoDaListaEUmSimbolo(textViewResultado: CharSequence):Boolean {
+        if ((textViewResultado.length-1).toString() == "-1")
+            return false
+        else {
+            when(textViewResultado[textViewResultado.length - 1].toString()) {
+                "+" -> return false
+                "-" -> return false
+                "/" -> return false
+                "*" -> return false
+                "." -> return false
+            }
+    }
+        return true
+    }
+
     private fun funDelLastElement(textViewResultado: CharSequence): CharSequence {
+        if(textViewResultado.length == 1) return ""
         var charCaracteres: String = ""
         for (i in 0..textViewResultado.length - 1) {
             charCaracteres += textViewResultado[i]
             if (i == textViewResultado.length - 2)
                 return charCaracteres
         }
-        return "${
-            Toast.makeText(this, "Desculpe, houve um erro ao deletar!", Toast.LENGTH_SHORT).show()
-        }"
+        return ""
     }
+
+    private fun funVerificaSeESimbolo(posicaoParaVerificarSeESimbolo: String):Boolean{
+        when(posicaoParaVerificarSeESimbolo){
+            "+" -> return false
+            "-" -> return false
+            "/" -> return false
+            "*" -> return false
+            "." -> return false
+        }
+        return true
+    }
+
+
 
     //TODO 5: Criar uma estrutura para ler uma lista de caracteres.
     //        A leitura dessa estrutura deve ser feita até que uma expressão seja apertada.
@@ -101,13 +139,39 @@ class MainActivity : AppCompatActivity() {
     //        Este ciclo deve ser mantido até que o botão CALCULAR seja apertado.
 
 
-    private fun funCalcularResultado(text: CharSequence?) {
-        Toast.makeText(this, "${text!![0]}", Toast.LENGTH_SHORT).show()
+    private fun funCalcularResultado(textViewResultado: CharSequence?) {
+    //TODO 6: SE NÃO HOUVER ELEMENTO OU SE HOUVER E FOR UM SIMBOLO, SAIA
+        if(funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text) == false)
+            //break
+        else
+            for (i in 0..textViewResultado!!.length - 1){
+
+    //TODO 7: SE FOR UM SIMBOLO, ELE PEGA O ELEMENTO DA PRIMEIRA POSIÇÃO, E FAZ A OPERAÇÃO
+    //        DO SIMBOLO COM O ELEMENTO DA SEGUNDA POSIÇÃO
+
+                if(funVerificaSeESimbolo(textViewResultado[i].toString())) {
+                    when (textViewResultado[i].toString()){
+
+                    }
+                }
+                else
+                    listaDeValoresParaCalcular[i] = textViewResultado[i].toString()
+            }
+    //TODO 8: É NECESSÁRIO SEGUIR A ORDEM CORRETA DO USO DAS EXPREÇÕES MATEMATICAS,
+    //        O RESULTADO DE 25 + 18 * 3 É DIFERENTE DEPENDENDO DA ABORDAGEM
+    //        > Potenciação e Radiciação
+    //        > Multiplicação e Divisão
+    //        > Adição (soma) e Subtração
+
+
+
+
+        Toast.makeText(this, "${textViewResultado!![0]}", Toast.LENGTH_SHORT).show()
     }
 
-    private fun funVerificaSeTemUmElementoAritimeticoPorUltimo(){
 
-    }
+
+
 
 }
 

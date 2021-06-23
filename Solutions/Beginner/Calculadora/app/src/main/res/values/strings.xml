@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Calculadora</string>
+    <string name="msg_erro_ao_inserir_simbolo">Informe a expressão corretamente!</string>
 </resources>
