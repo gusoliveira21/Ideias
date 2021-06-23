@@ -30,8 +30,8 @@ Os projetos são divididos em três níveis com base no conhecimento e na experi
 | Nome                                                                              | Descrição do softwares                                     | Nível      | Status|
 | --------------------------------------------------------------------------------- | ---------------------------------------------------------- | ---------- |-------|
 | [Bin2Dec](./Projects/1-Beginner/Bin2Dec-App.md)                                   | Conversor de número binário para decimal                   | Iniciante | :heavy_check_mark:|
-| [Border Radius Previewer](./Projects/1-Beginner/Border-Radius-Previewer.md)       | Visualize como os valores de raio de borda CSS3 afetam um elemento | Iniciante |       |
-| [Calculator](./Projects/1-Beginner/Calculator-App.md)                             | Calculadora                                                | Iniciante |       |
+| [Border Radius Previewer](./Projects/1-Beginner/Border-Radius-Previewer.md)       | Visualize como os valores de raio de borda CSS3 afetam um elemento | Iniciante |:large_orange_diamond:|
+| [Calculator](./Projects/1-Beginner/Calculator-App.md)                             | Calculadora                                                | Iniciante |:large_orange_diamond:|
 | [Christmas Lights](./Projects/1-Beginner/Christmas-Lights-App.md)                 | Simule uma série de luzes de Natal                         | Iniciante |       |
 | [Cause Effect App](./Projects/1-Beginner/Cause-Effect-App.md)                     | Clique no item da lista para exibir os detalhes do item    | Iniciante |       |
 | [Color Cycle](./Projects/1-Beginner/Color-Cycle-App.md)                           | Ciclo de um valor de cor por meio de mudanças incrementais | Iniciante |       |
