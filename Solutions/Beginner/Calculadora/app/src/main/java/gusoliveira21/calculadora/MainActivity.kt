@@ -6,11 +6,13 @@ import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import gusoliveira21.calculadora.databinding.ActivityMainBinding
+import net.objecthunter.exp4j.ExpressionBuilder
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     var valor: Double = 0.0
-
+    //val stringParaSomar:String = "${binding.textViewResultado.text}"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,159 +53,146 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-            btSoma.setOnClickListener{
-                if (funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text))
+            btSoma.setOnClickListener {
+                if (CheckIfIsEmpty(binding.textViewResultado.text)
+                    || CheckIfLastElementOfListIsSymbol(binding.textViewResultado.text)
+                )
+                    ToastMessage()
+                else
                     binding.textViewResultado.text = "${binding.textViewResultado.text}" + "+"
-                else
-                    Toast.makeText(this@MainActivity, "Informe a expressão corretamente!", Toast.LENGTH_SHORT)
-                        .show()
+
             }
-            btVirgula.setOnClickListener{
-                if ((funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text)) &&
-                    (funVerificaSeJaTemUmPonto(binding.textViewResultado.text)))
-                    binding.textViewResultado.text = "${binding.textViewResultado.text}" + "."
+            btDivisao.setOnClickListener {
+                if (CheckIfIsEmpty(binding.textViewResultado.text)
+                    || CheckIfLastElementOfListIsSymbol(binding.textViewResultado.text)
+                )
+                    ToastMessage()
                 else
-                    Toast.makeText(this@MainActivity, "Informe a expressão corretamente!", Toast.LENGTH_SHORT)
-                        .show()
-            }
-            btDivisao.setOnClickListener{
-                if (funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text))
                     binding.textViewResultado.text = "${binding.textViewResultado.text}" + "/"
-                else
-                    Toast.makeText(this@MainActivity, "Informe a expressão corretamente!", Toast.LENGTH_SHORT)
-                        .show()
-
             }
-            btSubtracao.setOnClickListener{
-                if (funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text))
+            btSubtracao.setOnClickListener {
+                if (CheckIfIsEmpty(binding.textViewResultado.text)
+                    || CheckIfLastElementOfListIsSymbol(binding.textViewResultado.text)
+                )
+                    ToastMessage()
+                else
+
                     binding.textViewResultado.text = "${binding.textViewResultado.text}" + "-"
-                else
-                    Toast.makeText(this@MainActivity, "Informe a expressão corretamente!", Toast.LENGTH_SHORT)
-                        .show()
 
             }
-            btMultiplicacao.setOnClickListener{
-                if (funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text))
+            btMultiplicacao.setOnClickListener {
+                if (CheckIfIsEmpty(binding.textViewResultado.text)
+                    || CheckIfLastElementOfListIsSymbol(binding.textViewResultado.text)
+                )
+                    ToastMessage()
+                else
+
                     binding.textViewResultado.text = "${binding.textViewResultado.text}" + "*"
-                else
-                    Toast.makeText(this@MainActivity, "Informe a expressão corretamente!", Toast.LENGTH_SHORT)
-                        .show()
+            }
+            btVirgula.setOnClickListener {
+                if (CheckIfIsEmpty(binding.textViewResultado.text)
+                    || CheckIfLastElementOfListIsSymbol(binding.textViewResultado.text)
+                )
+                    ToastMessage()
+                else if (VerificaSeJaFoiDigitadoUmPontoAnteriormente(binding.textViewResultado.text)) {
+                    ToastMessage()
+                } else
+                    binding.textViewResultado.text = "${binding.textViewResultado.text}" + "."
+
             }
 
-            btDelAll.setOnClickListener{binding.textViewResultado.setText("") }
-            btDelLast.setOnClickListener{
+            btDelAll.setOnClickListener {
+                binding.textViewResultado.setText("")
+            }
+            btDelLast.setOnClickListener {
                 if (binding.textViewResultado.text.isEmpty())
                     Toast.makeText(this@MainActivity, "Campo Vazio", Toast.LENGTH_SHORT).show()
                 else
-                    binding.textViewResultado.setText(funDelLastElement(binding.textViewResultado.text))
+                    binding.textViewResultado.setText(DeleteTheLastElement(binding.textViewResultado.text))
             }
 
-            btCalcular.setOnClickListener{funCalcularResultado(binding.textViewResultado.text)}
-        }
-    }
-
-    private fun funVerificaSeJaTemUmPonto(ViewCampoDigitado: CharSequence): Boolean {
-        try{
-            for (i in ViewCampoDigitado.length - 1 downTo 0) {
-                if (ViewCampoDigitado[i].toString() == ".")
-                    return false
-                else
-                    when (ViewCampoDigitado[i].toString()) {
-                        "+" -> return true
-                        "-" -> return true
-                        "/" -> return true
-                        "*" -> return true
-                    }
-            }
-            return true
-        }catch(e:Exception){
-            Toast.makeText(this, "${e}", Toast.LENGTH_SHORT).show()
-            return false
-        }
-    }
-
-    private fun funVerificaSeUltimoElementoDaListaEUmSimbolo(ViewCampoDigitado: CharSequence): Boolean {
-        if ((ViewCampoDigitado.length - 1).toString() == "-1")
-            return false
-        else {
-
-            when (ViewCampoDigitado[ViewCampoDigitado.length - 1].toString()) {
-                "+" -> return false
-                "-" -> return false
-                "/" -> return false
-                "*" -> return false
-                "." -> return false
-            }
-        }
-        return true
-    }
-
-    private fun funDelLastElement(ViewCampoDigitado: CharSequence): CharSequence {
-        if (ViewCampoDigitado.length == 1) return ""
-        var charCaracteres: String = ""
-        for (i in 0..ViewCampoDigitado.length - 1) {
-            charCaracteres += ViewCampoDigitado[i]
-            if (i == ViewCampoDigitado.length - 2)
-                return charCaracteres
-        }
-        return ""
-    }
-
-    private fun funVerificaSeEUmSimbolo(posicaoParaVerificarSeESimbolo: String): Boolean {
-        when (posicaoParaVerificarSeESimbolo) {
-            "+" -> return false
-            "-" -> return false
-            "/" -> return false
-            "*" -> return false
-            "." -> return false
-        }
-        return true
-    }
-
-        //TODO 5: Criar uma estrutura para ler uma lista de caracteres.
-        //        A leitura dessa estrutura deve ser feita até que uma expressão seja apertada.
-        //        Nesse ponto, os elementos selecionados no momento da escolha da expressão devem ser guardados.
-        //        Se o usuario digitar o restante dos números após escolher a expressão, este restante deve ser armazenado.
-        //        Este ciclo deve ser mantido até que o botão CALCULAR seja apertado.
-
-
-    private fun funCalcularResultado(ViewCampoDigitado: CharSequence?) {
-        //TODO 6: SE NÃO HOUVER ELEMENTO OU SE HOUVER E FOR UM SIMBOLO, SAIA (Se o campo estiver em branco)
-        if (funVerificaSeUltimoElementoDaListaEUmSimbolo(binding.textViewResultado.text) == false)
-        //break
-        else
-        //TODO 7: SE FOR UM SIMBOLO, ELE PEGA O ELEMENTO DA PRIMEIRA POSIÇÃO, E FAZ A OPERAÇÃO
-        //        DO SIMBOLO COM O ELEMENTO DA SEGUNDA POSIÇÃO
-            for (i in 0..ViewCampoDigitado!!.length - 1) {
-                if (funVerificaSeEUmSimbolo(ViewCampoDigitado[i].toString()) == false){
-                    when (ViewCampoDigitado[i].toString()){
-                        "+" -> Toast.makeText(this, "Tem SOMA", Toast.LENGTH_SHORT).show()//funSoma()
-                        "-" -> Toast.makeText(this, "Tem SUBTRACAO", Toast.LENGTH_SHORT).show()//funSubtracao()
-                        "/" -> Toast.makeText(this, "Tem DIVISAO", Toast.LENGTH_SHORT).show()//funDivisao()
-                        "*" -> Toast.makeText(this, "Tem MULTIPLICACAO", Toast.LENGTH_SHORT).show()//funMultiplicacao()
-                        "." -> Toast.makeText(this, "Tem PONTO", Toast.LENGTH_SHORT).show()//funPonto()
-                    }
-                } else {
-                    //TODO 4: É necessário inicializar a variável listaDeValoresParaCalcular
-                    //Toast.makeText(this, "Aqui acontece a inserção do numero na lista", Toast.LENGTH_SHORT).show()
-                    var listaDeValoresParaCalcular:MutableList<String> = mutableListOf()
-                    listaDeValoresParaCalcular.add(ViewCampoDigitado[i].toString())
-                    //listaDeValoresParaCalcular[i] = textViewResultado[i].toString()
-                    listaDeValoresParaCalcular.forEach { Log.e("GUSTAVO","${it}") }
-
-
+            btCalcular.setOnClickListener {
+                if (binding.textViewResultado.text.isEmpty())
+                    Toast.makeText(this@MainActivity, "Campo Vazio", Toast.LENGTH_SHORT).show()
+                else {
+                    binding.textViewResultado.setText(Result(binding.textViewResultado.text))
                 }
             }
-        //Toast.makeText(this, "${textViewResultado!![0]}", Toast.LENGTH_SHORT).show()
+        }
+    }
 
-        //TODO 8: É NECESSÁRIO SEGUIR A ORDEM CORRETA DO USO DAS EXPREÇÕES MATEMATICAS,
-        //        O RESULTADO DE 25 + 18 * 3 É DIFERENTE DEPENDENDO DA ABORDAGEM
-        //        > Potenciação e Radiciação
-        //        > Multiplicação e Divisão
-        //        > Adição (soma) e Subtração
+    private fun ToastMessage() {
+        /*Toast.makeText(
+            this@MainActivity, "Informe a expressão corretamente!", Toast.LENGTH_SHORT
+        ).show()*/
+    }
+
+    private fun VerificaSeJaFoiDigitadoUmPontoAnteriormente(ViewCampoDigitado: CharSequence?): Boolean {
+        val listaDeValores = listOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "0")
+        val listaDeSimbolos = listOf("+", "-", "*", "/")
+
+
+        for (i in ViewCampoDigitado!!.length - 2 downTo 0 step 1) {
+            if (ViewCampoDigitado[i].toString().equals(".")) return true
+
+            listaDeSimbolos.forEachIndexed { index, value ->
+                if (ViewCampoDigitado[i].toString().equals("$value")) return false
+            }
+
+            listaDeValores.forEachIndexed { index, value ->
+                if (ViewCampoDigitado[i].toString().equals("$value"))
+
+                    listaDeSimbolos.forEachIndexed { index, value ->
+                        if (ViewCampoDigitado[i - 1].toString().equals("$value")) return false
+                    }
+
+            }
+
+        }
+        return false
+    }
+
+    private fun CheckIfIsEmpty(ViewCampoDigitado: CharSequence): Boolean {
+        if ((ViewCampoDigitado.length - 1).toString() == "-1")
+            return true
+        return false
+    }
+
+    private fun CheckIfLastElementOfListIsSymbol(ViewCampoDigitado: CharSequence): Boolean {
+        return CheckIfIsASymbol(ViewCampoDigitado[ViewCampoDigitado.length - 1].toString())
+    }
+
+    private fun CheckIfIsASymbol(posicaoParaVerificarSeESimbolo: String): Boolean {
+        when (posicaoParaVerificarSeESimbolo) {
+            "+" -> return true
+            "-" -> return true
+            "/" -> return true
+            "*" -> return true
+            "." -> return true
+        }
+        return false
+    }
+
+    private fun DeleteTheLastElement(ViewCampoDigitado: CharSequence): CharSequence {
+        return ViewCampoDigitado.subSequence(0, ViewCampoDigitado.length - 1)
+    }
+
+    private fun Result(ViewCampoDigitado: CharSequence): CharSequence {
+        var text: String
+        if (CheckIfLastElementOfListIsSymbol(ViewCampoDigitado))
+            text = ViewCampoDigitado.subSequence(0, ViewCampoDigitado.length - 1).toString()
+        else
+            text = ViewCampoDigitado.toString()
+
+        val eval = ExpressionBuilder(text).build()
+        val res = eval.evaluate()
+        text = res.toString()
+
+        return String.format("%.2f", text.toDouble())
     }
 
 
 }
+
 
 

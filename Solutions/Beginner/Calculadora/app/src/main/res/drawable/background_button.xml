@@ -4,7 +4,7 @@
         android:shape="oval">
 
 <gradient
-    android:startColor="@color/teal_700"
+    android:startColor="@color/background_button_equals"
     android:endColor="@color/material_on_primary_emphasis_medium"/>
 
     <size

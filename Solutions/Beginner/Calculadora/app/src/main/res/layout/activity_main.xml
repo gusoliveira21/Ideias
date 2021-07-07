@@ -12,234 +12,183 @@
             type="gusoliveira21.calculadora.MainActivity" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
+        android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/textViewResultado"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="#F3F0F0"
-            android:includeFontPadding="false"
-            android:textAlignment="textEnd"
-            android:textSize="34sp"
-            app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TableLayout
-            android:id="@+id/tableLayout"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
-            android:baselineAligned="false"
-            android:clickable="false"
-            android:clipChildren="false"
-            android:clipToPadding="false"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
 
-            <TableRow
-                android:layout_width="389dp"
-                android:layout_height="wrap_content">
-
-                <Button
-                    android:id="@+id/btDelAll"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#3F51B5"
-                    android:includeFontPadding="false"
-                    android:text="C"
-                    android:textSize="24sp"
-                    app:backgroundTint="#3F51B5" />
-
-                <ImageButton
-                    android:id="@+id/btDelLast"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#3F51B5"
-                    android:foregroundGravity="center"
-                    android:hapticFeedbackEnabled="false"
-                    app:srcCompat="@drawable/ic_seta"
-
-                    tools:ignore="VectorDrawableCompat" />
-
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="389dp"
-                android:layout_height="wrap_content">
-
-                <Button
-                    android:id="@+id/bt1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:includeFontPadding="false"
-                    android:text="1"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/bt2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:text="2"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/bt3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:text="3"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/btMultiplicacao"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:text="*"
-                    android:textSize="24sp"
-                    app:backgroundTint="@color/purple_700" />
-
-            </TableRow>
-
-            <TableRow
+            <TextView
+                android:id="@+id/textViewResultado"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="150dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:textAlignment="textEnd"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <Button
-                    android:id="@+id/bt4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:text="4"
-                    android:textSize="24sp" />
+        </LinearLayout>
 
-                <Button
-                    android:id="@+id/bt5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:text="5"
-                    android:textSize="24sp" />
 
-                <Button
-                    android:id="@+id/bt6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:text="6"
-                    android:textSize="24sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
 
-                <Button
-                    android:id="@+id/btDivisao"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:text="/"
-                    android:textSize="24sp"
-                    app:backgroundTint="@color/purple_700" />
+            <Button
+                android:id="@+id/btDelAll"
+                style="@style/style_by_long"
+                android:layout_width="177dp"
+                android:text="@string/value_button_c"
+                app:backgroundTint="@color/background_button_clean" />
 
-            </TableRow>
-
-            <TableRow
+            <ImageButton
+                android:id="@+id/btDelLast"
+                style="@style/style_by_long"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:background="@color/background_button_clean"
+                app:srcCompat="@drawable/in_backspace"
+                tools:ignore="VectorDrawableCompat" />
+        </LinearLayout>
 
-                <Button
-                    android:id="@+id/bt7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:text="7"
-                    android:textSize="24sp" />
 
-                <Button
-                    android:id="@+id/bt8"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:text="8"
-                    android:textSize="24sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
 
-                <Button
-                    android:id="@+id/bt9"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:text="9"
-                    android:textSize="24sp" />
+            <Button
+                android:id="@+id/bt1"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_1"
+                app:backgroundTint="@color/background_button_number" />
 
-                <Button
-                    android:id="@+id/btSubtracao"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:text="-"
-                    android:textSize="24sp"
-                    app:backgroundTint="@color/purple_700" />
+            <Button
+                android:id="@+id/bt2"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_2"
+                app:backgroundTint="@color/background_button_number" />
 
-            </TableRow>
+            <Button
+                android:id="@+id/bt3"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_3"
+                app:backgroundTint="@color/background_button_number" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <Button
+                android:id="@+id/btMultiplicacao"
+                style="@style/style_by_fat"
+                android:text="@string/value_button_multiplication"
+                app:backgroundTint="@color/background_button_simbol" />
+        </LinearLayout>
 
-                <Button
-                    android:id="@+id/btVirgula"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="8dp"
-                    android:background="#FFFFFF"
-                    android:text=","
-                    android:textSize="24sp"
-                    app:backgroundTint="@color/purple_700" />
 
-                <Button
-                    android:id="@+id/bt0"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="8dp"
-                    android:background="#FFFFFF"
-                    android:text="0"
-                    android:textSize="24sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
 
-                <Button
-                    android:id="@+id/btCalcular"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="8dp"
-                    android:background="@color/purple_500"
-                    android:text="="
-                    android:textSize="24sp"
-                    app:backgroundTint="@color/teal_700" />
+            <Button
+                android:id="@+id/bt4"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_4"
+                app:backgroundTint="@color/background_button_number" />
 
-                <Button
-                    android:id="@+id/btSoma"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="8dp"
-                    android:background="#FFFFFF"
-                    android:text="+"
-                    android:textSize="24sp"
-                    app:backgroundTint="@color/purple_700" />
+            <Button
+                android:id="@+id/bt5"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_5"
+                app:backgroundTint="@color/background_button_number" />
 
-            </TableRow>
-        </TableLayout>
+            <Button
+                android:id="@+id/bt6"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_6"
+                app:backgroundTint="@color/background_button_number" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btDivisao"
+                style="@style/style_by_fat"
+                android:text="@string/value_button_division"
+                app:backgroundTint="@color/background_button_simbol" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bt7"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_7"
+                app:backgroundTint="@color/background_button_number" />
+
+            <Button
+                android:id="@+id/bt8"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_8"
+                app:backgroundTint="@color/background_button_number" />
+
+            <Button
+                android:id="@+id/bt9"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_9"
+                app:backgroundTint="@color/background_button_number" />
+
+            <Button
+                android:id="@+id/btSubtracao"
+                style="@style/style_by_fat"
+                android:text="@string/value_button_subtraction"
+                app:backgroundTint="@color/background_button_simbol" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <Button
+                android:id="@+id/btVirgula"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_dot"
+                app:backgroundTint="@color/background_button_simbol" />
+
+            <Button
+                android:id="@+id/bt0"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_0"
+                app:backgroundTint="@color/background_button_number" />
+
+            <Button
+                android:id="@+id/btCalcular"
+                style="@style/style_by_skinny"
+                android:text="@string/value_button_equals"
+                app:backgroundTint="@color/background_button_equals" />
+
+            <Button
+                android:id="@+id/btSoma"
+                style="@style/style_by_fat"
+                android:text="@string/value_button_plus"
+                app:backgroundTint="@color/background_button_simbol" />
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>
