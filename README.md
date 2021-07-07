@@ -16,11 +16,11 @@
 
 Os projetos são divididos em três níveis com base no conhecimento e na experiência 18 necessário para completá-los.
 
-| Nível | Perfil do desenvolvedor | |
-| : -: | -------------------------------------------------- -------------------------------------------------- -------------------------------------------------- ---------- | --- |
-| 1 Desenvolvedores nos estágios iniciais de sua jornada de aprendizado. Aqueles que normalmente se concentram na criação de aplicativos voltados para o usuário. |: large_orange_diamond: |
-| 2 | Desenvolvedores em um estágio intermediário de aprendizagem e experiência. Eles se sentem confortáveis ​​com UI / UX, usando ferramentas de desenvolvimento e criando aplicativos que usam serviços de API. |: red_circle: |
-| 3 | Desenvolvedores que têm todos os itens acima e estão aprendendo técnicas mais avançadas, como implementação de aplicativos de back-end e serviços de banco de dados. |: Red_circle: |
+| Nível | Perfil do desenvolvedor 																	| 			 |
+|-------| --------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
+| 1     | Desenvolvedores nos estágios iniciais de sua jornada de aprendizado. Aqueles que normalmente se concentram na criação de aplicativos voltados para o usuário. |: large_orange_diamond: |
+| 2     | Desenvolvedores em um estágio intermediário de aprendizagem e experiência. Eles se sentem confortáveis ​​com UI / UX, usando ferramentas de desenvolvimento e criando aplicativos que usam serviços de API. |: red_circle: |
+| 3     | Desenvolvedores que têm todos os itens acima e estão aprendendo técnicas mais avançadas, como implementação de aplicativos de back-end e serviços de banco de dados. |: Red_circle: |
 
 🌟 - Novo Projeto
 : heavy_check_mark:
@@ -28,7 +28,7 @@ Os projetos são divididos em três níveis com base no conhecimento e na experi
 ### Nível-1: Projetos iniciantes
 
 | Nome 					| Descrição do software 						| Nível     | Status 		      |
-| --------------------------------------| ----------------------------------------------------------------------|-------------------------------------|
+| --------------------------------------| ----------------------------------------------------------------------|-----------|-------------------------|
 | Bin2Dec 				| Conversor de número binário para decimal    				| Iniciante |: heavy_check_mark:      |
 | Calculadora 				| Calculadora                                                           | Iniciante |: heavy_check_mark:      |
 | Luzes de natal 			| Simule uma série de luzes de Natal                                    | Iniciante | 			      |
