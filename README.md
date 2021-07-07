@@ -20,7 +20,7 @@ Os projetos são divididos em três níveis com base no conhecimento e na experi
 |-------| --------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
 | 1     | Desenvolvedores nos estágios iniciais de sua jornada de aprendizado. Aqueles que normalmente se concentram na criação de aplicativos voltados para o usuário. |:large_orange_diamond: |
 | 2     | Desenvolvedores em um estágio intermediário de aprendizagem e experiência. Eles se sentem confortáveis ​​com UI / UX, usando ferramentas de desenvolvimento e criando aplicativos que usam serviços de API. |:red_circle: |
-| 3     | Desenvolvedores que têm todos os itens acima e estão aprendendo técnicas mais avançadas, como implementação de aplicativos de back-end e serviços de banco de dados. |:Red_circle: |
+| 3     | Desenvolvedores que têm todos os itens acima e estão aprendendo técnicas mais avançadas, como implementação de aplicativos de back-end e serviços de banco de dados. |:red_circle: |
 
 🌟 - Novo Projeto
 : heavy_check_mark:
@@ -29,9 +29,9 @@ Os projetos são divididos em três níveis com base no conhecimento e na experi
 
 | Nome 					| Descrição do software 						| Nível     | Status 		      |
 | --------------------------------------| ----------------------------------------------------------------------|-----------|-------------------------|
-| Bin2Dec 				| Conversor de número binário para decimal    				| Iniciante |:heavy_check_mark:      |
-| Calculadora 				| Calculadora                                                           | Iniciante |:heavy_check_mark:      |
-| Luzes de natal 			| Simule uma série de luzes de Natal                                    | Iniciante | 			      |
+| Bin2Dec 				| Conversor de número binário para decimal    				| Iniciante |:heavy_check_mark:       |
+| Calculadora 				| Calculadora                                                           | Iniciante |:heavy_check_mark:       |
+| Luzes de natal 			| Simule uma série de luzes de Natal                                    | Iniciante |:large_orange_diamond:   |
 | Aplicativo de efeito de causa 	| Clique no item da lista para exibir os detalhes do item               | Iniciante |                         |
 | Ciclo de cores 			| Ciclo de um valor de cor por meio de mudanças incrementais            | Iniciante |                         |
 | Temporizador de contagem regressiva 	| Temporizador de contagem regressiva do evento 			| Iniciante |                         |
